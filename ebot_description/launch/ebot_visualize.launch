@@ -7,7 +7,7 @@
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
 
 <!--runnning rviz node-->
-    <node name="rviz" pkg="rviz" type="rviz" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ebot_nav)/rviz/task2_rviz.rviz"  />
 
 <!--saving rviz configurations in a rviz folder-->
 
@@ -15,7 +15,7 @@
     
 <!--finds all of the non-fixed joints and publishes a JointState message-->
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
-        <param name="use_gui" value="True" />
+        <param name="use_gui" value="False" />
     </node>
     
 </launch>

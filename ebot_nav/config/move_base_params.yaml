@@ -1,0 +1,21 @@
+base_global_planner: global_planner/GlobalPlanner
+base_local_planner: dwa_local_planner/DWAPlannerROS
+
+shutdown_costmaps: false
+controller_frequency: 3.0
+planner_frequency: 2.0
+planner_patience: 3.0
+controller_patience: 3.0
+conservative_reset_dist: 1.0
+oscillation_timeout: 10.0
+oscillation_distance: 0.2
+# recovery_behavior_enabled: false
+
+
+GlobalPlanner:
+  # use_dijkstra: false
+  # use_grid_path: true
+  default_tolerance: 2.0
+  publish_potential: false
+  cost_factor: 0.9
+  # neutral_cost: 25

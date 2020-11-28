@@ -1,0 +1,4 @@
+.vscode
+ros_logs
+*.bag
+submit_docs

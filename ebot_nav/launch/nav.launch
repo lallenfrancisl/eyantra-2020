@@ -1,0 +1,25 @@
+<launch>
+  <!--including the launch file with a navigation world-->
+  <!-- <include file="$(find ebot_description)/launch/nav_test.launch" /> -->
+  <!-- launch the map server with the map file stored -->
+  <arg name="map_file_location" default="$(find ebot_nav)/maps/office_world.yaml"></arg>
+  <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file_location)"></node>
+  <!-- including launch file for localization using AMCL -->
+  <include file="$(find ebot_nav)/launch/amcl.launch" />
+  <!-- including launch file for visualizing in rviz -->
+  <include file="$(find ebot_description)/launch/ebot_visualize.launch" />
+
+  <!-- Move base -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" required="true">
+    <rosparam file="$(find ebot_nav)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find ebot_nav)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find ebot_nav)/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find ebot_nav)/config/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find ebot_nav)/config/move_base_params.yaml" command="load" />
+    <rosparam file="$(find ebot_nav)/config/dwa_local_planner_params.yaml" command="load" />
+  </node>
+
+  <node pkg="ebot_nav" type="nav.py" name="nav" output="screen" required="true"></node>
+
+  <!-- <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure" output="screen"></node> -->
+</launch>

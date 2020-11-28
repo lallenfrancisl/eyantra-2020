@@ -1,0 +1,13 @@
+global_costmap:
+  global_frame: map
+  robot_base_frame: ebot_base
+
+  inflation_radius: 0.75
+  cost_scaling_factor: 2.58
+
+  update_frequency: 1.0
+  publish_frequency: 1.0
+  transform_tolerance: 0.5
+
+  static_map: true
+ 

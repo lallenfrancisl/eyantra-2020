@@ -1,0 +1,9 @@
+obstacle_range: 5.0
+raytrace_range: 6.0
+
+footprint: [[-0.4, -0.32], [0.7, -0.32], [0.7, 0.32], [-0.4, 0.32]]
+footprint_padding: 0.0
+
+map_type: costmap
+observation_sources: scan
+scan: {sensor_frame: laser, data_type: LaserScan, topic: /ebot/laser/scan, marking: true, clearing: true}

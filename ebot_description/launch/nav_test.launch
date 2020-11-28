@@ -5,11 +5,12 @@
 
 
 <!--   test1 world for testing your navigation stack in small simulation world-->
-	<include file="$(find ebot_gazebo)/launch/test1_world.launch" />
+	<include file="$(find ebot_gazebo)/launch/office_world.launch" />
+	<!-- <include file="$(find ebot_gazebo)/launch/empty_world.launch" /> -->
 
-	<arg name="x" default="0"/>
-	<arg name="y" default="0"/>
-	<arg name="z" default="0"/>
+	<arg name="x" default="0.0"/>
+	<arg name="y" default="0.0"/>
+	<arg name="z" default="0.18"/>
 		
 
 <!-- Spawn the robot model -->
